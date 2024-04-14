@@ -1,6 +1,6 @@
 **README.md**
 
-# PDF Leaker
+# Reshy-Ege Cheater
 
 This Python script automates the process of solving math problems on the "sdamgia.ru" website. It logs in with provided credentials, fetches math problems from a specified test, leaks the correct answers, and fills out the test form with a certain number of correct answers and random incorrect answers to make the activity look natural.
 
@@ -40,6 +40,10 @@ This Python script automates the process of solving math problems on the "sdamgi
 5. The script will execute, logging in, fetching tasks, leaking answers, and filling out the test form. 
 
 6. After completion, the script will print the test status, including the time taken and the number of correct answers submitted.
+
+
+## License
+This project is licensed under the GNU Affero General Public License Version 3.0. For more information, see the LICENSE file.
 
 ## Disclaimer
 
