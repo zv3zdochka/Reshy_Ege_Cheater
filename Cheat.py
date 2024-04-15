@@ -5,7 +5,9 @@ import selenium.common.exceptions
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 
+
 main_options, sub_options = webdriver.ChromeOptions(), webdriver.ChromeOptions()
+
 
 sub_options.add_argument('--headless')
 
@@ -52,8 +54,9 @@ class PdfLeaker:
         self.leaker = webdriver.Chrome(options=sub_options)
         for i in self.links:
             self.leaker.get(i)
-            time.sleep(1)
+            time.sleep(5)
             s = self.leaker.find_element(By.XPATH, "/html/body").text
+            print(s)
             try:
                 k = (s.index("Ответ: "))
                 m = s[k + 7: k + 15].split("\n")[0].replace('.', '')
@@ -62,7 +65,7 @@ class PdfLeaker:
                     k = (s.index("Ответ:"))
                     m = s[k + 6: k + 15].split("\n")[0].replace('.', '')
                 except:
-                    m = random.randrange(0,15)
+                    m = random.randrange(0, 15)
 
             print(m)
             self.answers.append(m)
@@ -97,8 +100,8 @@ class PdfLeaker:
 if __name__ == "__main__":
     N = 7
     for _ in range(N):
-        login = ''
-        password = ''
+        login = ""
+        password = ""
         url = ""
         solver = PdfLeaker(url, login, password)
         solver.run()
