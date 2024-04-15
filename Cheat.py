@@ -19,7 +19,7 @@ class PdfLeaker:
         self.password = pas
         self.links = []
         self.answers = []
-        self.time = (random.randrange(18, 25) * 60) + random.randrange(0, 60)
+        self.time = (random.randrange(15, 22) * 60) + random.randrange(0, 60)
         self.correct = random.randrange(0, 3)
 
     def log(self):
@@ -58,9 +58,11 @@ class PdfLeaker:
                 k = (s.index("Ответ: "))
                 m = s[k + 7: k + 15].split("\n")[0].replace('.', '')
             except Exception as e:
-                print(s)
-                k = (s.index("Ответ:"))
-                m = s[k + 6: k + 15].split("\n")[0].replace('.', '')
+                try:
+                    k = (s.index("Ответ:"))
+                    m = s[k + 6: k + 15].split("\n")[0].replace('.', '')
+                except:
+                    m = random.randrange(0,15)
 
             print(m)
             self.answers.append(m)
@@ -93,10 +95,10 @@ class PdfLeaker:
 
 
 if __name__ == "__main__":
-    N = 1
+    N = 7
     for _ in range(N):
-        login = ""
-        password = ""
+        login = ''
+        password = ''
         url = ""
         solver = PdfLeaker(url, login, password)
         solver.run()
